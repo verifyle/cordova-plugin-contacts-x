@@ -349,6 +349,11 @@ import PhoneNumberKit
                         completionHandler(false)
                     }
                 }
+                case .limited:
+                    completionHandler(true)
+                @unknown default:
+                    completionHandler(false)
+                }
     }
 
     func returnError(error: ErrorCodes, message: String = "") {
@@ -388,7 +393,7 @@ import PhoneNumberKit
             return "other";
         }
     }
-    
+
     static func getPhoneNumberKitInstance() -> PhoneNumberKit {
         if(ContactsX._PhoneNumberKitInstance == nil){
             ContactsX._PhoneNumberKitInstance = PhoneNumberKit();
